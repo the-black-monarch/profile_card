@@ -43,57 +43,6 @@ class MyApp extends StatelessWidget {
             ),
           ),
           //SOCIAL LINKS
-          Card(
-            margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-            child: ListTile(
-              leading: Icon(
-                Icons.facebook,
-                color: Colors.black87,
-              ),
-              title: Text(
-                'facebook',
-                style: TextStyle(
-                  fontFamily: 'Source Sans Pro',
-                  fontSize: 20.0,
-                  color: Colors.black,
-                ),
-              ),
-            ),
-          ),
-          Card(
-            margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-            child: ListTile(
-              leading: Icon(
-                Icons.discord,
-                color: Colors.black87,
-              ),
-              title: Text(
-                'discord',
-                style: TextStyle(
-                  fontFamily: 'Source Sans Pro',
-                  fontSize: 20.0,
-                  color: Colors.black,
-                ),
-              ),
-            ),
-          ),
-          Card(
-            margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-            child: ListTile(
-              leading: Icon(
-                Icons.phone,
-                color: Colors.black87,
-              ),
-              title: Text(
-                'contact',
-                style: TextStyle(
-                  fontFamily: 'Source Sans Pro',
-                  fontSize: 20.0,
-                  color: Colors.black,
-                ),
-              ),
-            ),
-          ),
         ],
       )),
     ));
