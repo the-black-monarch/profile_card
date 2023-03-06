@@ -16,31 +16,28 @@ class MyApp extends StatelessWidget {
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                //CREATE AIRCLE AVATAR FOR PROFILE IMAGE
+              children: <Widget>[
                 CircleAvatar(
                   radius: 50.0,
                   backgroundImage: AssetImage('images/starwolf.png'),
-                  backgroundColor: Colors.white,
                 ),
-                // USERNAME
                 Text(
                   'Star Wolf',
                   style: TextStyle(
-                    color: Colors.white,
                     fontFamily: 'Pacifico',
-                    fontWeight: FontWeight.bold,
                     fontSize: 40.0,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-                //USER JOB TITLE
                 Text(
-                  'SOFTWARE DEVELOPER',
+                  'FLUTTER DEVELOPER',
                   style: TextStyle(
-                    color: Colors.white,
                     fontFamily: 'Source Sans Pro',
+                    color: Colors.white,
+                    fontSize: 20.0,
+                    letterSpacing: 2.5,
                     fontWeight: FontWeight.bold,
-                    fontSize: 30.0,
                   ),
                 ),
                 SizedBox(
@@ -50,12 +47,31 @@ class MyApp extends StatelessWidget {
                     color: Colors.white70,
                   ),
                 ),
-                //SOCIAL LINKS
               ],
             ),
           ),
         ),
       ),
     );
+  }
+}
+
+class Profile extends StatefulWidget {
+  const Profile({super.key});
+
+  @override
+  State<Profile> createState() => _ProfileState();
+}
+
+class _ProfileState extends State<Profile> {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Row(
+        children: [
+          
+        ],
+      ),
+    ),
   }
 }
