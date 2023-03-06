@@ -43,6 +43,13 @@ class MyApp extends StatelessWidget {
                     fontSize: 30.0,
                   ),
                 ),
+                SizedBox(
+                  height: 20.0,
+                  width: 150.0,
+                  child: Divider(
+                    color: Colors.white70,
+                  ),
+                ),
                 //SOCIAL LINKS
               ],
             ),
