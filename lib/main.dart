@@ -57,35 +57,63 @@ class _ProfileState extends State<Profile> {
                 color: Colors.white70,
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                ElevatedButton.icon(
-                  onPressed: () {},
-                  icon: Icon(Icons.facebook),
-                  label: Text('facebook'),
-                ),
-                ElevatedButton.icon(
-                  onPressed: () {},
-                  icon: Icon(FontAwesomeIcons.instagram),
-                  label: Text('Instagram'),
-                ),
-                ElevatedButton.icon(
-                  onPressed: () {},
-                  icon: Icon(
-                    (FontAwesomeIcons.twitter),
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Wrap(
+                alignment: WrapAlignment.center,
+                runAlignment: WrapAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ElevatedButton.icon(
+                      onPressed: () {},
+                      icon: Icon(Icons.facebook),
+                      label: Text(
+                        'facebook',
+                        style: TextStyle(fontFamily: 'Source Sans Pro'),
+                      ),
+                    ),
                   ),
-                  label: Text('Twitter'),
-                ),
-                ElevatedButton.icon(
-                  onPressed: () {},
-                  icon: Icon(
-                    (FontAwesomeIcons.linkedin),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ElevatedButton.icon(
+                      onPressed: () {},
+                      icon: Icon(FontAwesomeIcons.instagram),
+                      label: Text(
+                        'Instagram',
+                        style: TextStyle(fontFamily: 'Source Sans Pro'),
+                      ),
+                    ),
                   ),
-                  label: Text('Linkedin'),
-                ),
-              ],
-            )
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ElevatedButton.icon(
+                      onPressed: () {},
+                      icon: Icon(
+                        (FontAwesomeIcons.twitter),
+                      ),
+                      label: Text(
+                        'Twitter',
+                        style: TextStyle(fontFamily: 'Source Sans Pro'),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ElevatedButton.icon(
+                      onPressed: () {},
+                      icon: Icon(
+                        (FontAwesomeIcons.linkedin),
+                      ),
+                      label: Text(
+                        'Linkedin',
+                        style: TextStyle(fontFamily: 'Source Sans Pro'),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
