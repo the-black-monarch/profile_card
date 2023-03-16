@@ -5,7 +5,7 @@ void main() {
   return runApp(
     MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.black87,
+        backgroundColor: Colors.black,
         body: Profile(),
       ),
     ),
@@ -20,7 +20,6 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
-  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Center(
@@ -29,7 +28,7 @@ class _ProfileState extends State<Profile> {
           children: <Widget>[
             CircleAvatar(
               radius: 50.0,
-              backgroundImage: AssetImage('images/starwolf.png'),
+              backgroundImage: AssetImage('images/wolf.png'),
             ),
             Text(
               'Star Wolf',
@@ -66,48 +65,68 @@ class _ProfileState extends State<Profile> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: ElevatedButton.icon(
-                      onPressed: () {},
-                      icon: Icon(Icons.facebook),
-                      label: Text(
-                        'facebook',
-                        style: TextStyle(fontFamily: 'Source Sans Pro'),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: ElevatedButton.icon(
-                      onPressed: () {},
-                      icon: Icon(FontAwesomeIcons.instagram),
-                      label: Text(
-                        'Instagram',
-                        style: TextStyle(fontFamily: 'Source Sans Pro'),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: ElevatedButton.icon(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.white),
                       onPressed: () {},
                       icon: Icon(
-                        (FontAwesomeIcons.twitter),
+                        FontAwesomeIcons.facebook,
+                        color: Colors.black,
+                      ),
+                      label: Text(
+                        'facebook',
+                        style: TextStyle(
+                            fontFamily: 'Source Sans Pro', color: Colors.black),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ElevatedButton.icon(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.white),
+                      onPressed: () {},
+                      icon: Icon(
+                        FontAwesomeIcons.instagram,
+                        color: Colors.black,
+                      ),
+                      label: Text(
+                        'Instagram',
+                        style: TextStyle(
+                            fontFamily: 'Source Sans Pro', color: Colors.black),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ElevatedButton.icon(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.white),
+                      onPressed: () {},
+                      icon: Icon(
+                        FontAwesomeIcons.twitter,
+                        color: Colors.black,
                       ),
                       label: Text(
                         'Twitter',
-                        style: TextStyle(fontFamily: 'Source Sans Pro'),
+                        style: TextStyle(
+                            fontFamily: 'Source Sans Pro', color: Colors.black),
                       ),
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: ElevatedButton.icon(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.white),
                       onPressed: () {},
                       icon: Icon(
-                        (FontAwesomeIcons.linkedin),
+                        FontAwesomeIcons.linkedin,
+                        color: Colors.black,
                       ),
                       label: Text(
                         'Linkedin',
-                        style: TextStyle(fontFamily: 'Source Sans Pro'),
+                        style: TextStyle(
+                            fontFamily: 'Source Sans Pro', color: Colors.black),
                       ),
                     ),
                   ),
