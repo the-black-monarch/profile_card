@@ -17,7 +17,8 @@ do give a :star: if you like it :smile:
 
 ## :camera: Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Screenshot from 2023-03-16 06-58-26](https://user-images.githubusercontent.com/74816797/225529167-1bc58d31-ba39-47ac-9ae6-e9a5013f0929.png)
+
 
 
 ## :information_desk_person: Author(s)
