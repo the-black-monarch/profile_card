@@ -1,140 +1,163 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:profile_card/edit_profile_sheet.dart';
+import 'package:profile_card/profile_card.dart';
+
+// ThemeData for the app
+final ThemeData darkTheme = ThemeData(
+  primaryColor: Colors.black,
+  brightness: Brightness.dark,
+  scaffoldBackgroundColor: Colors.black,
+  colorScheme: ColorScheme.dark(
+    primary: Colors.white,
+    secondary: Colors.white70,
+    surface: Colors.grey[850]!,
+    onPrimary: Colors.black,
+    onSecondary: Colors.white,
+    onBackground: Colors.white,
+    onSurface: Colors.white,
+  ),
+  textTheme: TextTheme(
+    bodyLarge: TextStyle(color: Colors.white),
+    bodyMedium: TextStyle(color: Colors.white70),
+    headlineSmall: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+  ),
+  iconTheme: IconThemeData(color: Colors.white),
+);
+
+final ThemeData lightTheme = ThemeData(
+  primaryColor: Colors.white,
+  brightness: Brightness.light,
+  scaffoldBackgroundColor: Colors.white,
+  colorScheme: ColorScheme.light(
+    primary: Colors.black,
+    secondary: Colors.black87,
+    surface: Colors.grey[200]!,
+    onPrimary: Colors.white,
+    onSecondary: Colors.black,
+    onBackground: Colors.black,
+    onSurface: Colors.black,
+  ),
+  textTheme: TextTheme(
+    bodyLarge: TextStyle(color: Colors.black),
+    bodyMedium: TextStyle(color: Colors.black87),
+    headlineSmall: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+  ),
+  iconTheme: IconThemeData(color: Colors.black),
+);
+
+// Profile data model
+class Profile {
+  String name;
+  String jobTitle;
+  String githubUrl;
+  String facebookUrl;
+  String twitterUrl;
+  String email;
+
+  Profile({
+    required this.name,
+    required this.jobTitle,
+    required this.githubUrl,
+    required this.facebookUrl,
+    required this.twitterUrl,
+    required this.email,
+  });
+}
 
 void main() {
-  return runApp(
-    MaterialApp(
-      home: Scaffold(
-        backgroundColor: Colors.black,
-        body: Profile(),
-      ),
-    ),
-  );
+  runApp(MyApp());
 }
 
-class Profile extends StatefulWidget {
-  const Profile({super.key});
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  bool _isDarkMode = true;
+
+  void _toggleTheme() {
+    setState(() {
+      _isDarkMode = !_isDarkMode;
+    });
+  }
 
   @override
-  State<Profile> createState() => _ProfileState();
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: lightTheme,
+      darkTheme: darkTheme,
+      themeMode: _isDarkMode ? ThemeMode.dark : ThemeMode.light,
+      home: ProfileScreen(toggleTheme: _toggleTheme),
+    );
+  }
 }
 
-class _ProfileState extends State<Profile> {
+class ProfileScreen extends StatefulWidget {
+  final VoidCallback toggleTheme;
+
+  ProfileScreen({required this.toggleTheme});
+
+  @override
+  _ProfileScreenState createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  Profile _profile = Profile(
+    name: 'Star Wolf',
+    jobTitle: 'FLUTTER DEVELOPER',
+    githubUrl: 'https://github.com/StarWOlfEmperor',
+    facebookUrl: 'https://facebook.com',
+    twitterUrl: 'https://twitter.com',
+    email: 'mailto:test@example.com',
+  );
+
+  void _updateProfile(Profile newProfile) {
+    setState(() {
+      _profile = newProfile;
+    });
+  }
+
+  void _showEditSheet() {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      builder: (context) {
+        return EditProfileSheet(
+          profile: _profile,
+          onSave: _updateProfile,
+        );
+      },
+    );
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            CircleAvatar(
-              radius: 50.0,
-              backgroundImage: AssetImage('images/wolf.png'),
-            ),
-            Text(
-              'Star Wolf',
-              style: TextStyle(
-                fontFamily: 'Pacifico',
-                fontSize: 40.0,
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            Text(
-              'FLUTTER DEVELOPER',
-              style: TextStyle(
-                fontFamily: 'Source Sans Pro',
-                color: Colors.white,
-                fontSize: 20.0,
-                letterSpacing: 2.5,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(
-              height: 20.0,
-              width: 150.0,
-              child: Divider(
-                color: Colors.white70,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Wrap(
-                alignment: WrapAlignment.center,
-                runAlignment: WrapAlignment.center,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: ElevatedButton.icon(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.white),
-                      onPressed: () {},
-                      icon: Icon(
-                        FontAwesomeIcons.facebook,
-                        color: Colors.black,
-                      ),
-                      label: Text(
-                        'facebook',
-                        style: TextStyle(
-                            fontFamily: 'Source Sans Pro', color: Colors.black),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: ElevatedButton.icon(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.white),
-                      onPressed: () {},
-                      icon: Icon(
-                        FontAwesomeIcons.instagram,
-                        color: Colors.black,
-                      ),
-                      label: Text(
-                        'Instagram',
-                        style: TextStyle(
-                            fontFamily: 'Source Sans Pro', color: Colors.black),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: ElevatedButton.icon(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.white),
-                      onPressed: () {},
-                      icon: Icon(
-                        FontAwesomeIcons.twitter,
-                        color: Colors.black,
-                      ),
-                      label: Text(
-                        'Twitter',
-                        style: TextStyle(
-                            fontFamily: 'Source Sans Pro', color: Colors.black),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: ElevatedButton.icon(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.white),
-                      onPressed: () {},
-                      icon: Icon(
-                        FontAwesomeIcons.linkedin,
-                        color: Colors.black,
-                      ),
-                      label: Text(
-                        'Linkedin',
-                        style: TextStyle(
-                            fontFamily: 'Source Sans Pro', color: Colors.black),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        actions: [
+          IconButton(
+            icon: Icon(Icons.edit),
+            onPressed: _showEditSheet,
+          ),
+        ],
+      ),
+      body: SafeArea(
+        child: Center(
+          child: SingleChildScrollView(
+            child: ProfileCard(profile: _profile),
+          ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: widget.toggleTheme,
+        child: Icon(Icons.brightness_6),
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        foregroundColor: Theme.of(context).colorScheme.onPrimary,
       ),
     );
   }
